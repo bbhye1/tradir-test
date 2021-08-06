@@ -8,7 +8,6 @@ import Home from "./Pages/Home";
 // import ReactGA from "react-ga";
 
 const Routes = () => {
-
   return (
     <Router>
         <Switch>
