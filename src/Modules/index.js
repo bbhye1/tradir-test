@@ -1,26 +1,24 @@
-import { put, call, takeEvery } from "redux-saga/effects";
+import { put, call, takeEvery } from 'redux-saga/effects';
 
-import { enableES5 } from "immer";
+import { enableES5 } from 'immer';
 
-import { fetchData } from '../service/Api'
-import { testT } from '../Modules/slice'
+import fetchData from '../service/api';
 
+import { setBeers } from './slice';
 
 enableES5();
 
-//wathcer saga
-export function* rootSaga() {
-  yield takeEvery("USER_FETCH_REQUESTED", fetchUser);
-}
-
-function* fetchUser(action) {
+function* fetchBeers(action) {
   try {
-     const test = yield call(fetchData, action.payload);
-     yield put(testT(test));
+    const test = yield call(fetchData, action.payload);
+    yield put(setBeers(test));
   } catch (e) {
     // TODO: 에러처리
   }
 }
 
+export function* rootSaga() {
+  yield takeEvery('FETCH_BEERS', fetchBeers);
+}
 
 export default rootSaga;
