@@ -3,18 +3,18 @@ import { createSlice } from '@reduxjs/toolkit';
 const { actions, reducer } = createSlice({
   name: 'text',
   initialState: {
-    test: [],
+    beers: [],
   },
   reducers: {
-    testT: (state, { payload: test }) => ({
-        ...state,
-        test,
+    setBeers: (state, { payload: beers }) => ({
+      ...state,
+      beers,
     }),
   },
 });
 
 export const {
-  testT,
+  setBeers,
 } = actions;
 
 export default reducer;
